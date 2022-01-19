@@ -29,7 +29,7 @@ func initRongQi() {
 								pt_pin := core.FetchCookieValue(env.Value, "pt_pin")
 								name, _ = url.QueryUnescape(pt_pin)
 								if _, ok := mc[pt_pin]; ok {
-									if _, err := qinglong.Req(ql, qinglong.PUT, qinglong.ENVS, "/enable", []byte(`["`+env.ID+`"]`)); err == nil {
+									if _, err := qinglong.Req(ql, qinglong.PUT, qinglong.ENVS, "/disable", []byte(`["`+env.ID+`"]`)); err == nil {
 										s.Reply(fmt.Sprintf("发现到重复账号，已隐藏(%s)%s。", name, tail))
 									}
 									env.Remarks = "重复账号。"
