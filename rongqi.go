@@ -16,7 +16,7 @@ func initRongQi() {
 			// Cron:  "*/5 * * * *",
 			Handle: func(s core.Sender) interface{} {
 				if it := s.GetImType(); it != "terminal" && it != "tg" && it != "fake" {
-					return "可能会产生大量消息，请在终端或tg进行操作。"
+					return "⚠️⚠️⚠️会产生大量消息，请在终端或tg进行操作~~~"
 				}
 				//容器内去重
 				var memvs = map[*qinglong.QingLong][]qinglong.Env{} //分组记录ck
@@ -41,9 +41,9 @@ func initRongQi() {
 								name, _ = url.QueryUnescape(env.PtPin)
 								if _, ok := mc[env.PtPin]; ok {
 									if _, err := qinglong.Req(ql, qinglong.PUT, qinglong.ENVS, "/disable", []byte(`["`+env.ID+`"]`)); err == nil {
-										s.Reply(fmt.Sprintf("在同一容器发现到重复变量，已隐藏(%s)%s。", name, ql.GetTail()))
+										s.Reply(fmt.Sprintf("佩琦发现重复🐶京东账号，🐶京东账号(%s)%s已隐藏~~~", name, ql.GetTail()))
 									}
-									env.Remarks = "重复变量。"
+									env.Remarks = "重复🐶京东账号~~~"
 									qinglong.UdpEnv(ql, env)
 								} else {
 									mc[env.PtPin] = true
@@ -65,9 +65,9 @@ func initRongQi() {
 						name, _ = url.QueryUnescape(env.PtPin)
 						if _, ok := eql[env.PtPin]; ok {
 							if ql_, err := qinglong.Req(ql, qinglong.PUT, qinglong.ENVS, "/disable", []byte(`["`+env.ID+`"]`)); err == nil {
-								s.Reply(fmt.Sprintf("在%s发现重复变量，已隐藏(%s)%s。", ql.GetName(), name, ql_.GetTail()))
+								s.Reply(fmt.Sprintf("佩琦在%s发现重复🐶京东账号，🐶京东账号(%s)%s已隐藏~~~", ql.GetName(), name, ql_.GetTail()))
 							}
-							env.Remarks = "重复变量。"
+							env.Remarks = "重复🐶京东账号~~~"
 							qinglong.UdpEnv(ql, env)
 						} else {
 							eql[env.PtPin] = ql
@@ -93,16 +93,16 @@ func initRongQi() {
 						if len(toapp_) > 0 {
 							memvs[aql] = append(memvs[aql], toapp_...)
 							if err := qinglong.AddEnv(aql, toapp_...); err != nil {
-								s.Reply(fmt.Sprintf("失败转移%d个变量到聚合容器(%s)：%v%s", len(toapp_), aql.GetName(), err, ql.GetTail()))
+								s.Reply(fmt.Sprintf("无法转移%d个🐶京东账号到聚合容器(%s)：%v%s", len(toapp_), aql.GetName(), err, ql.GetTail()))
 							} else {
-								s.Reply(fmt.Sprintf("成功转移%d个变量到聚合容器(%s)。%s", len(toapp_), aql.GetName(), ql.GetTail()))
+								s.Reply(fmt.Sprintf("成功转移%d个🐶京东账号到聚合容器(%s)。%s", len(toapp_), aql.GetName(), ql.GetTail()))
 							}
 						}
 					}
 				}
 				//分配
 
-				return "迁移任务结束。"
+				return "🐶京东账号迁移任务结束~~~"
 			},
 		},
 	})
