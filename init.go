@@ -39,6 +39,7 @@ func init() {
 		"佩琦推荐你使用在线自助登陆系统：%s",
 		`http://jd.linxiaozhu.cn/`,
 	)
+	initRongQi()
 }
 
 var Transport *http.Transport
