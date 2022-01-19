@@ -103,7 +103,6 @@ func initEnv() {
 				toe[1].Timestamp = ""
 				toe[0].Created = 0
 				toe[1].Created = 0
-
 				if _, err := qinglong.Req(qls[0], qinglong.PUT, qinglong.ENVS, toe[0]); err != nil {
 					return err
 				}
