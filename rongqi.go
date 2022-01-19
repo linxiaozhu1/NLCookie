@@ -30,7 +30,7 @@ func initRongQi() {
 									pt_pin, _ = url.QueryUnescape(pt_pin)
 									if _, ok := mc[pt_pin]; ok {
 										if _, err := qinglong.Req(ql, qinglong.PUT, qinglong.ENVS, "/enable", []byte(`["`+env.ID+`"]`)); err == nil {
-											s.Reply(fmt.Sprintf("佩琦发现重复账号，已隐藏(%s)%s~~~", pt_pin, tail))
+											s.Reply(fmt.Sprintf("佩琦发现重复🐶京东账号，已隐藏(%s)%s~~~", pt_pin, tail))
 										}
 										env.Remarks = "假佩琦~~~"
 										go qinglong.UdpEnv(ql, env)
@@ -49,7 +49,7 @@ func initRongQi() {
 				}
 				//聚合
 				//均匀
-				return nil
+				return "🐶京东账号迁移完成~~~"
 			},
 		},
 	})
