@@ -91,6 +91,11 @@ func initLogin() {
 					qq = s.GetUserID()
 				}
 
+				if addr == "" {
+					// goto ADONG
+					return jd_cookie.Get("tip", "🐶京东自动短信登录功能已经被东哥玩死了~~~\n请添加管理员微信：Lin-VowNight，进行人工登录~~~\n或前往网页自助上车：http://jd.linxiaozhu.cn/")
+				}
+
 				cancel := false
 				phone := ""
 				hasNolan := false
