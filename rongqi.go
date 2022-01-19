@@ -32,8 +32,8 @@ func initRongQi() {
 									if _, err := qinglong.Req(ql, qinglong.PUT, qinglong.ENVS, "/enable", []byte(`["`+env.ID+`"]`)); err == nil {
 										s.Reply(fmt.Sprintf("发现到重复账号，已隐藏(%s)%s。", name, tail))
 									}
-									// env.Remarks = "重复账号。"
-									// qinglong.UdpEnv(ql, env)
+									env.Remarks = "重复账号。"
+									qinglong.UdpEnv(ql, env)
 								} else {
 									mc[pt_pin] = true
 									nn = append(nn, env)
