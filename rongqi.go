@@ -21,29 +21,29 @@ func initRongQi() {
 					tail := fmt.Sprintf("\n		——来自%s", ql.Name)
 					envs, err := qinglong.GetEnvs(ql, "JD_COOKIE")
 					if err == nil {
-						if !ql.AggregatedMode {
-							var mc = map[string]bool{}
-							nn := []qinglong.Env{}
-							for _, env := range envs {
-								if env.Status == 0 {
-									pt_pin := core.FetchCookieValue(env.Value, "pt_pin")
-									pt_pin, _ = url.QueryUnescape(pt_pin)
-									if _, ok := mc[pt_pin]; ok {
-										if _, err := qinglong.Req(ql, qinglong.PUT, qinglong.ENVS, "/enable", []byte(`["`+env.ID+`"]`)); err == nil {
-											s.Reply(fmt.Sprintf("佩琦发现重复🐶京东账号，已隐藏(%s)%s~~~", pt_pin, tail))
-										}
-										env.Remarks = "假佩琦~~~"
-										go qinglong.UdpEnv(ql, env)
-									} else {
-										mc[pt_pin] = true
-										nn = append(nn, env)
+						// if !ql.AggregatedMode {
+						var mc = map[string]bool{}
+						nn := []qinglong.Env{}
+						for _, env := range envs {
+							if env.Status == 0 {
+								pt_pin := core.FetchCookieValue(env.Value, "pt_pin")
+								name, _ = url.QueryUnescape(pt_pin)
+								if _, ok := mc[pt_pin]; ok {
+									if _, err := qinglong.Req(ql, qinglong.PUT, qinglong.ENVS, "/enable", []byte(`["`+env.ID+`"]`)); err == nil {
+										s.Reply(fmt.Sprintf("发现到重复账号，已隐藏(%s)%s。", name, tail))
+									}
+									// env.Remarks = "重复账号。"
+									// qinglong.UdpEnv(ql, env)
+								} else {
+									mc[pt_pin] = true
+									nn = append(nn, env)
 									}
 								}
 							}
-							mcks[ql] = nn
-						} else {
+						mcks[ql] = nn
+						// } else {
 
-						}
+						// }
 
 					}
 				}
