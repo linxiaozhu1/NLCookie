@@ -32,7 +32,7 @@ func initRongQi() {
 										if _, err := qinglong.Req(ql, qinglong.PUT, qinglong.ENVS, "/enable", []byte(`["`+env.ID+`"]`)); err == nil {
 											s.Reply(fmt.Sprintf("佩琦发现重复账号，已隐藏(%s)%s~~~", pt_pin, tail))
 										}
-										env.Remarks = ""
+										env.Remarks = "假佩琦~~~"
 										go qinglong.UdpEnv(ql, env)
 									} else {
 										mc[pt_pin] = true
