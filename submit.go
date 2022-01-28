@@ -374,7 +374,7 @@ func initSubmit() {
 								s.Reply(err.Error() + tail)
 								continue
 							}
-							s.Reply("🐶京东账号：" + ck.Nickname + ",已添加成功~~~" + tail)
+							s.Reply("🐶京东账号：" + ck.Nickname + "，已添加成功~~~" + tail)
 							continue
 						} else {
 							envWsCK.Value = value
@@ -389,7 +389,7 @@ func initSubmit() {
 								s.Reply(err.Error() + tail)
 								continue
 							}
-							s.Reply("🐶京东账号：" + ck.Nickname + ",已更新成功~~~" + tail)
+							s.Reply("🐶京东账号：" + ck.Nickname + "，已更新成功~~~" + tail)
 							continue
 
 						}
